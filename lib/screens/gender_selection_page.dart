@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ruler_picker/flutter_ruler_picker.dart';
+
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:hexcolor/hexcolor.dart';
-import 'package:horizontal_picker/horizontal_picker.dart';
+
 import 'package:millions_recipe/home.dart';
 import 'package:millions_recipe/screens/on_boarding_screen.dart';
 import 'package:millions_recipe/widgets/triangle_painter.dart';
