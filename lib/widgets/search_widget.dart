@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:millions_recipe/common/constants.dart';
 
 class SearchResult extends StatelessWidget {
   const SearchResult({super.key});
@@ -15,22 +18,10 @@ class SearchResult extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(width: 2, color: Colors.grey)),
-            child: const Expanded(
+            child: Expanded(
               child: Padding(
                 padding: EdgeInsets.only(top: 5),
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: "Search recipes",
-                    border: InputBorder.none,
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                    isDense: true,
-                    suffixIcon: Icon(CupertinoIcons.slider_horizontal_3),
-                    suffixIconColor: Colors.grey,
-                    prefixIconColor: Colors.grey,
-                  ),
-                ),
+                child: topSearchBar(),
               ),
             ),
           ),
@@ -91,10 +82,12 @@ class SearchResult extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // ignore: sized_box_for_whitespace
                   Container(
                       width: 128,
                       height: 155,
-                      child: const Image(image: AssetImage("assets/pancake.png"))),
+                      child:
+                          const Image(image: AssetImage("assets/pancake.png"))),
                   const SizedBox(
                     width: 10,
                   ),
@@ -190,7 +183,7 @@ class SearchResult extends StatelessWidget {
         const SizedBox(
           width: 8,
         ),
-      Text(
+        Text(
           txt,
           style: const TextStyle(
               color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w500),
@@ -198,4 +191,36 @@ class SearchResult extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget topSearchBar() {
+  return Container(
+    height: 44,
+    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 4),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(width: 1, color: const Color(0xffD9D9D9))),
+    child: TextField(
+      cursorColor: kPrimaryColor,
+      decoration: const InputDecoration(
+        prefixIcon: Icon(
+          Icons.search,
+          color: Color(0xffD9D9D9),
+        ),
+        hintText: "Search recipes",
+        hintStyle: TextStyle(color: Color(0xffC1C1C1)),
+        border: InputBorder.none,
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 12,
+          horizontal: 16,
+        ),
+        isDense: true,
+        suffixIcon: Icon(
+          CupertinoIcons.slider_horizontal_3,
+          color: Color(0xffD9D9D9),
+        ),
+      ),
+    ),
+  );
 }
